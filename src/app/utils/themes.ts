@@ -1,8 +1,10 @@
 // import { fonts, colors } from "@/app/utils/themes";
 export const color = {
   darkGreen: "#47BE27",
+  mediumGreen: "#43BA40",
   lightGreen: "#DEF0D9",
   orange: "#FF7800",
+  red: "#DF2935",
   White: "#ffffff",
   offWhite: "#FBFFFE",
   grey: "#7A7A7A",
