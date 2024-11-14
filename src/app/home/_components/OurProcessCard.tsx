@@ -13,6 +13,7 @@ export function OurProcessCard() {
       }}
     >
       <Box
+        className="project"
         sx={{
           backgroundColor: color.lightGreen,
           borderRadius: "30px",
@@ -21,6 +22,8 @@ export function OurProcessCard() {
           display: "flex",
           flexDirection: "column",
           gap: "25px",
+          // transform: "scale(0.6)",
+          // opacity: "0.5",
         }}
       >
         <Box

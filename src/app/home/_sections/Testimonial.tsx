@@ -11,6 +11,9 @@ import svgs from "@/_assets/svgs";
 
 export default function OurProcess() {
   const settings = {
+    className: "center",
+    centerMode: true,
+    centerPadding: "0px",
     nextArrow: <CustomRightArrow />,
     prevArrow: <CustomLeftArrow />,
     dots: false,
@@ -25,6 +28,7 @@ export default function OurProcess() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          centerMode: false,
         },
       },
       {
@@ -32,6 +36,7 @@ export default function OurProcess() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: false,
         },
       },
     ],
