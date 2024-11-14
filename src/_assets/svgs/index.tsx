@@ -4,6 +4,7 @@ import Notepad from "./notepad.svg";
 import Tick from "./tick.svg";
 import OrangeStar from "./orangeStar.svg";
 import WhiteStar from "./whiteStar.svg";
+import Comma from "./comma.svg";
 
 const svgs = {
   Logo,
@@ -12,6 +13,7 @@ const svgs = {
   Tick,
   OrangeStar,
   WhiteStar,
+  Comma,
 };
 
 export default svgs;
