@@ -32,7 +32,7 @@ export default function OurProcess() {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -88,7 +88,7 @@ export default function OurProcess() {
                   textTransform: "uppercase",
                 }}
               >
-                Our Process
+                testimonial
               </Typography>
             </Box>
             <Typography
