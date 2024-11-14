@@ -186,6 +186,7 @@ function OurServicesCard({
           borderRadius: "12px",
           overflow: "hidden",
           height: "100%",
+          boxShadow: `0px 4px 10px 0px ${color.fadeBlack}`,
         }}
       >
         <Box sx={{ width: "100%", height: "auto", marginBottom: "-2.5px" }}>
