@@ -6,7 +6,7 @@ import OurProcess from "./_sections/OurProcess";
 import ContactUs from "./_sections/ContactUs";
 import Testimonial from "./_sections/Testimonial";
 import CaseStudy from "./_sections/CaseStudy";
-// import Footer from "@/_components/Footer";
+import Footer from "@/_components/Footer";
 
 export default function HomePage() {
   return (
@@ -18,7 +18,7 @@ export default function HomePage() {
       <ContactUs />
       <Testimonial />
       <CaseStudy />
-      {/* <Footer /> */}
+      <Footer />
     </Box>
   );
 }
