@@ -204,11 +204,11 @@ function OurServicesCard({
             width: "100%",
             backgroundColor: color.white,
             padding: "16px 32px 32px 32px",
-            textAlign: "justify",
+            textAlign: "left",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "flex-start",
             gap: "20px",
           }}
         >

@@ -15,8 +15,6 @@ export default function From() {
           backgroundPosition: "center center",
           display: "flex",
           justifyContent: "center",
-          width: "100%",
-          // height: "100% !important",
         }}
       >
         <Box
@@ -27,7 +25,6 @@ export default function From() {
             flexDirection: { xs: "column", lg: "row" },
             gap: { xs: "40px", lg: "60px" },
             maxWidth: "1600px",
-            // height: "100%",
             width: "100%",
           }}
         >
