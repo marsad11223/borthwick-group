@@ -14,6 +14,7 @@ const Button: React.FC<{
       variant="contained"
       disabled={disabled}
       sx={{
+        height: { xs: "45px", md: "60px" },
         fontSize: font.tertiaryTypography,
         width: "100%",
         color: "#ffffff",
