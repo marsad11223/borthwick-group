@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { color, font } from "@/app/utils/themes";
 import {
   Box,
@@ -14,10 +14,27 @@ import Button from "./Button";
 
 export default function Form() {
   const [radioValue, setRadioValue] = useState<string>("homeOwner");
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRadioValue(event.target.value);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (dropdownOpen) {
+        setDropdownOpen(false);
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [dropdownOpen]);
 
   return (
     <Box
@@ -52,25 +69,36 @@ export default function Form() {
           sx={{
             width: "100%",
             "& .MuiOutlinedInput-root": {
-              backgroundColor: color.lightgrey,
+              backgroundColor: "#EDEDED",
               borderRadius: "4px",
               fontSize: "18px",
-              color: color.grey,
+              color: "#757575",
               "& fieldset": {
                 borderColor: "transparent",
               },
               "&:hover fieldset": {
-                borderColor: color.grey,
+                borderColor: "#757575",
               },
               "&.Mui-focused fieldset": {
-                borderColor: color.grey,
+                borderColor: "#757575",
               },
             },
             "& .MuiInputBase-input": {
-              color: color.grey,
+              color: "#757575",
             },
           }}
           defaultValue={2}
+          open={dropdownOpen}
+          onOpen={() => setDropdownOpen(true)}
+          onClose={() => setDropdownOpen(false)}
+          MenuProps={{
+            PaperProps: {
+              sx: {
+                maxHeight: 200, // Optional: Limit height of dropdown
+              },
+            },
+            disableScrollLock: true,
+          }}
         >
           <MenuItem value={1}>Sofas</MenuItem>
           <MenuItem value={2}>Chairs</MenuItem>
