@@ -6,11 +6,13 @@ const Button: React.FC<{
   children: React.ReactNode;
   styles?: ButtonProps["sx"];
   type?: ButtonProps["type"];
-}> = ({ children, styles = {}, type }) => {
+  disabled?: boolean;
+}> = ({ children, styles = {}, type, disabled = false }) => {
   return (
     <MuiButton
       type={type}
       variant="contained"
+      disabled={disabled}
       sx={{
         fontSize: font.tertiaryTypography,
         width: "100%",

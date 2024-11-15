@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { color, font } from "@/app/utils/themes";
 import {
@@ -10,9 +10,11 @@ import {
   Typography,
   Radio,
   FormHelperText,
+  CircularProgress,
 } from "@mui/material";
 import StandardInput from "./StandardInput";
 import Button from "./Button";
+import axios from "axios";
 
 // Define an interface for the form data
 interface FormData {
@@ -42,8 +44,24 @@ export default function Form() {
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form Submitted", data);
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (data: FormData) => {
+    setLoading(true);
+
+    try {
+      const response = await axios.post("/api/contactus", data);
+
+      if (response.status === 200) {
+        console.log("Email sent successfully:", response.data.message);
+      } else {
+        console.error("Error sending email:", response.data.error);
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -249,7 +267,22 @@ export default function Form() {
         ))}
       </Box>
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit" disabled={loading}>
+        {loading ? (
+          <CircularProgress
+            size={24}
+            sx={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              marginLeft: "-12px",
+              marginTop: "-12px",
+            }}
+          />
+        ) : (
+          "Submit"
+        )}
+      </Button>
     </Box>
   );
 }
