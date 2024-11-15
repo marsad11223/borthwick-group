@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Slide, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ToastContainer transition={Slide} />
+        {children}
+      </body>
     </html>
   );
 }

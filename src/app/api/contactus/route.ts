@@ -2,26 +2,44 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export const POST = async (request: Request) => {
-  const { email, name, message } = await request.json();
+  const { name, email, address, phone, postCode, category, homeType } =
+    await request.json();
 
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "marsad11223@gmail.com",
-        pass: "qwaa gpky fuxl fzqp",
+        user: "marsad11223@gmail.com", // Your email
+        pass: "qwaa gpky fuxl fzqp", // Your email app password
       },
     });
 
-    // Define email options
+    // Define the email content
     const mailOptions = {
       from: "marsad11223@gmail.com",
-      to: "contact@pulsetechnologysolutions.co.uk",
+      to: "marsad11223@gmail.com", // Recipient's email
       subject: "Contact Form Submission",
-      text: message,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`,
+      text: `
+        Name: ${name}
+        Email: ${email}
+        Address: ${address}
+        Phone: ${phone}
+        Post Code: ${postCode}
+        Category: ${category}
+        Home Type: ${homeType}
+      `,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Address:</strong> ${address}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Post Code:</strong> ${postCode}</p>
+        <p><strong>Category:</strong> ${category}</p>
+        <p><strong>Home Type:</strong> ${homeType}</p>
+      `,
     };
 
+    // Send the email
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ message: "Email sent successfully!" });
