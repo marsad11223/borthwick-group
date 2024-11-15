@@ -233,6 +233,18 @@ export default function Form() {
                   },
                 },
               }}
+              defaultValue={"Chairs"}
+              open={dropdownOpen}
+              onOpen={() => setDropdownOpen(true)}
+              onClose={() => setDropdownOpen(false)}
+              MenuProps={{
+                PaperProps: {
+                  sx: {
+                    maxHeight: 200, // Optional: Limit height of dropdown
+                  },
+                },
+                disableScrollLock: true,
+              }}
             >
               <MenuItem value={"Sofas"}>Sofas</MenuItem>
               <MenuItem value={"Chairs"}>Chairs</MenuItem>
