@@ -21,38 +21,37 @@ export default function OurServices() {
       alignment: "flex-start",
     },
     {
-      imageSrc: pngs.HeatPump,
-      title: "FREE Air Source Heat Pump",
+      imageSrc: pngs.HeaterReplacement,
+      title: "FREE Storage Heater Replacement",
       description:
-        "Access the latest renewable technology with a Free Air Source Heat Pump.",
+        "Our water heater repair service involves diagnosing and fixing issues.",
       alignment: "center",
     },
     {
-      imageSrc: pngs.HeatPump,
-      title: "FREE Air Source Heat Pump",
+      imageSrc: pngs.BoilerReplacement,
+      title: "Free Back Boiler Replacement",
       description:
-        "Access the latest renewable technology with a Free Air Source Heat Pump.",
+        "Our leak detection and repair service involves locating and fixing leaks in your plumbing.",
       alignment: "flex-end",
     },
     {
-      imageSrc: pngs.HeatPump,
-      title: "FREE Air Source Heat Pump",
+      imageSrc: pngs.CentralHeating,
+      title: "FREE Boiler and Central Heating",
       description:
-        "Access the latest renewable technology with a Free Air Source Heat Pump.",
+        "Free Boiler replacement for boilers older than 2004  and first time central heating upgrades",
       alignment: "flex-start",
     },
     {
-      imageSrc: pngs.HeatPump,
-      title: "FREE Air Source Heat Pump",
+      imageSrc: pngs.HomeInsulation,
+      title: "Free Whole Home Insulation",
       description:
-        "Access the latest renewable technology with a Free Air Source Heat Pump.",
+        "Boost home energy efficiency with cavity wall, loft, EWI, and UFI insulation.",
       alignment: "center",
     },
     {
-      imageSrc: pngs.HeatPump,
-      title: "FREE Air Source Heat Pump",
-      description:
-        "Access the latest renewable technology with a Free Air Source Heat Pump.",
+      imageSrc: pngs.SolarPower,
+      title: "Solar Power for Free with Solar PV",
+      description: "Get the clean energy with a free Solar PV system.",
       alignment: "flex-end",
     },
   ];
@@ -104,7 +103,7 @@ export default function OurServices() {
                   textTransform: "uppercase",
                 }}
               >
-                about us
+                our services
               </Typography>
             </Box>
             <Box>

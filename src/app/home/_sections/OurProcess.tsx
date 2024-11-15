@@ -11,14 +11,14 @@ export default function OurProcess() {
       text: "Check Your Eligibility",
     },
     {
-      image: svgs.Notepad,
-      title: "01",
-      text: "Check Your Eligibility",
+      image: svgs.Book,
+      title: "02",
+      text: "Book Your FREE Survey",
     },
     {
-      image: svgs.Notepad,
-      title: "01",
-      text: "Check Your Eligibility",
+      image: svgs.Tick,
+      title: "03",
+      text: "We Complete Your Work",
     },
   ];
 
@@ -133,7 +133,6 @@ export default function OurProcess() {
   );
 }
 
-// OurProcessCard component that receives props from the OurProcess function
 export function OurProcessCard({
   image,
   title,
@@ -152,7 +151,7 @@ export function OurProcessCard({
         position: "relative",
         width: "auto",
         height: "154px",
-        padding: "10px",
+        padding: "20px",
         whiteSpace: "nowrap",
         border: "1px solid #47BE2780",
         borderRadius: "12px",
@@ -194,6 +193,7 @@ export function OurProcessCard({
         sx={{
           color: color.darkGreen,
           fontSize: font.tertiaryTypography,
+          fontWeight: "700",
         }}
       >
         {text}
