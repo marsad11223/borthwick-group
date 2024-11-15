@@ -85,7 +85,6 @@ export default function OurProcess() {
                   fontSize: font.headingTertiary,
                   fontWeight: "700",
                   textAlign: "center",
-                  lineHeight: font.headingTertiary,
                   maxWidth: "400px",
                 }}
               >
