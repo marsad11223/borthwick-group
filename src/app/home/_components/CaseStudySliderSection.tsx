@@ -20,6 +20,7 @@ export default function CaseStudySliderSection() {
     color: color.white,
     border: `1px solid ${color.white}`,
     textAlign: "left",
+    padding: { xs: "3px", sm: "6px", lg: "16px" },
   };
   const darkText = {
     color: color.grey,
@@ -27,16 +28,17 @@ export default function CaseStudySliderSection() {
     backgroundColor: color.White,
     border: `1px solid ${color.darkGreen}`,
     textAlign: "center",
+    padding: { xs: "3px", sm: "6px", lg: "16px" },
   };
   return (
     <Box
       sx={{
         display: "flex",
         alignItems: "flex-start",
-        flexDirection: { xs: "column", md: "row" },
+        flexDirection: { xs: "column", lg: "row" },
         justifyContent: "space-between",
         gap: "50px",
-        overflowX: "auto",
+        // overflowX: "auto",
         paddingBottom: { xs: "40px", md: "60px", lg: "80px", xl: "100px" },
       }}
     >
@@ -103,11 +105,15 @@ export default function CaseStudySliderSection() {
       <Box
         sx={{
           backgroundColor: color.white,
-          padding: { xs: "20px", lg: "50px" },
+          padding: { xs: "10px", md: "30px", xl: "50px" },
           overflowX: "auto",
         }}
       >
-        <Table sx={{ textWrap: "nowrap", overflowX: "auto" }}>
+        <Table
+          sx={{
+            overflowX: "auto",
+          }}
+        >
           <TableRow>
             <TableCell sx={{ borderBottom: "none" }}></TableCell>
             <TableCell sx={{ borderBottom: "none" }}></TableCell>

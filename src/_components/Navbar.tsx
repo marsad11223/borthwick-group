@@ -18,7 +18,7 @@ export default function Navbar() {
           display: "flex",
           justifyContent: "center",
           padding: {
-            xs: "8px 20px",
+            xs: "0px 20px",
             sm: "8px 50px",
             md: "8px 80px",
             lg: "8px 100px",
