@@ -18,11 +18,6 @@ body {
   font-weight: 400;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 .section-padding {
   padding: 40px 20px;
 }

@@ -19,7 +19,7 @@ export default function OurProcess() {
     dots: false,
     arrows: true,
     infinite: true,
-    speed: 900,
+    speed: 600,
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [

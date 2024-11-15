@@ -6,6 +6,7 @@ import OurProcess from "./_sections/OurProcess";
 import ContactUs from "./_sections/ContactUs";
 import Testimonial from "./_sections/Testimonial";
 import CaseStudy from "./_sections/CaseStudy";
+import FAQ from "./_sections/FAQ";
 import Footer from "@/_components/Footer";
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ContactUs />
       <Testimonial />
       <CaseStudy />
+      <FAQ />
       <Footer />
     </Box>
   );
