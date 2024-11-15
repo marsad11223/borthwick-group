@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
 import { color, font } from "@/app/utils/themes";
 import {
   Box,
@@ -8,19 +9,36 @@ import {
   Select,
   Typography,
   Radio,
+  FormHelperText,
 } from "@mui/material";
 import StandardInput from "./StandardInput";
 import Button from "./Button";
 
 export default function Form() {
-  const [radioValue, setRadioValue] = useState<string>("homeOwner");
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      address: "",
+      phone: "",
+      postCode: "",
+      category: 2,
+      homeType: "homeOwner",
+    },
+  });
 
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRadioValue(event.target.value);
+  const onSubmit = (data: any) => {
+    console.log("Form Submitted", data);
   };
 
   return (
     <Box
+      component="form"
+      onSubmit={handleSubmit(onSubmit)}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -39,45 +57,145 @@ export default function Form() {
       >
         Fill The Form
       </Typography>
-      <StandardInput type="text" label="Name" />
-      <StandardInput type="email" label="Email" />
-      <StandardInput type="text" label="Address" />
-      <StandardInput type="number" label="Phone number" />
-      <StandardInput type="text" label="Post Code" />
-      <FormControl
-        fullWidth
-        sx={{ backgroundColor: "#EDEDED", borderRadius: "4px" }}
-      >
-        <Select
-          sx={{
-            width: "100%",
-            "& .MuiOutlinedInput-root": {
-              backgroundColor: color.lightgrey,
-              borderRadius: "4px",
-              fontSize: "18px",
-              color: color.grey,
-              "& fieldset": {
-                borderColor: "transparent",
-              },
-              "&:hover fieldset": {
-                borderColor: color.grey,
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: color.grey,
-              },
-            },
-            "& .MuiInputBase-input": {
-              color: color.grey,
-            },
-          }}
-          defaultValue={2}
-        >
-          <MenuItem value={1}>Sofas</MenuItem>
-          <MenuItem value={2}>Chairs</MenuItem>
-          <MenuItem value={3}>Tables</MenuItem>
-        </Select>
-      </FormControl>
 
+      {/* Name Field */}
+      <Controller
+        name="name"
+        control={control}
+        rules={{ required: "Name is required" }}
+        render={({ field }) => (
+          <StandardInput
+            {...field}
+            type="text"
+            label="Name"
+            error={!!errors.name}
+            helperText={errors.name?.message}
+          />
+        )}
+      />
+
+      {/* Email Field */}
+      <Controller
+        name="email"
+        control={control}
+        rules={{
+          required: "Email is required",
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: "Invalid email format",
+          },
+        }}
+        render={({ field }) => (
+          <StandardInput
+            {...field}
+            type="email"
+            label="Email"
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
+        )}
+      />
+
+      {/* Address Field */}
+      <Controller
+        name="address"
+        control={control}
+        rules={{ required: "Address is required" }}
+        render={({ field }) => (
+          <StandardInput
+            {...field}
+            type="text"
+            label="Address"
+            error={!!errors.address}
+            helperText={errors.address?.message}
+          />
+        )}
+      />
+
+      {/* Phone Field */}
+      <Controller
+        name="phone"
+        control={control}
+        rules={{
+          required: "Phone number is required",
+          pattern: {
+            value: /^[0-9]{8,13}$/, // Matches numbers between 8 and 13 digits
+            message: "Phone number must be between 8 and 13 digits",
+          },
+        }}
+        render={({ field }) => (
+          <StandardInput
+            {...field}
+            type="number"
+            label="Phone number"
+            error={!!errors.phone} // Highlight input if there's an error
+            helperText={errors.phone?.message} // Display error message
+          />
+        )}
+      />
+
+      {/* Post Code Field */}
+      <Controller
+        name="postCode"
+        control={control}
+        rules={{ required: "Post Code is required" }}
+        render={({ field }) => (
+          <StandardInput
+            {...field}
+            type="text"
+            label="Post Code"
+            error={!!errors.postCode}
+            helperText={errors.postCode?.message}
+          />
+        )}
+      />
+
+      {/* Category Field */}
+      <Controller
+        name="category"
+        control={control}
+        rules={{ required: "Category is required" }}
+        render={({ field }) => (
+          <FormControl
+            fullWidth
+            sx={{
+              backgroundColor: "#EDEDED",
+              borderRadius: "4px",
+            }}
+          >
+            <Select
+              {...field}
+              sx={{
+                width: "100%",
+                "& .MuiOutlinedInput-root": {
+                  backgroundColor: color.lightgrey,
+                  borderRadius: "4px",
+                  fontSize: "18px",
+                  color: color.grey,
+                  "& fieldset": {
+                    borderColor: "transparent",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: color.grey,
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: color.grey,
+                  },
+                },
+              }}
+            >
+              <MenuItem value={1}>Sofas</MenuItem>
+              <MenuItem value={2}>Chairs</MenuItem>
+              <MenuItem value={3}>Tables</MenuItem>
+            </Select>
+            {errors.category && (
+              <FormHelperText error>{errors.category.message}</FormHelperText>
+            )}
+          </FormControl>
+        )}
+      />
+
+      {/* Home Type Field */}
       <Box
         sx={{
           display: "flex",
@@ -85,88 +203,42 @@ export default function Form() {
           alignItems: "center",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Radio
-            value="homeOwner"
-            checked={radioValue === "homeOwner"}
-            onChange={handleRadioChange}
+        {["homeOwner", "tenant", "other"].map((type) => (
+          <Controller
+            key={type}
             name="homeType"
-            sx={{
-              color: color.darkGreen,
-              "&.Mui-checked": {
-                color: color.darkGreen,
-              },
-              padding: "0",
-              marginRight: "9px",
-            }}
+            control={control}
+            render={({ field }) => (
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Radio
+                  {...field}
+                  value={type}
+                  checked={field.value === type}
+                  sx={{
+                    color: color.darkGreen,
+                    "&.Mui-checked": {
+                      color: color.darkGreen,
+                    },
+                  }}
+                />
+                <Typography
+                  sx={{ fontSize: font.microTypography, color: color.grey }}
+                >
+                  {type.charAt(0).toUpperCase() + type.slice(1)}
+                </Typography>
+              </Box>
+            )}
           />
-          <Typography
-            sx={{ fontSize: font.microTypography, color: color.grey }}
-          >
-            Home Owner
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Radio
-            value="tenant"
-            checked={radioValue === "tenant"}
-            onChange={handleRadioChange}
-            name="homeType"
-            sx={{
-              color: color.darkGreen,
-              "&.Mui-checked": {
-                color: color.darkGreen,
-              },
-            }}
-          />
-          <Typography
-            sx={{ fontSize: font.microTypography, color: color.grey }}
-          >
-            Tenant
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Radio
-            value="other"
-            checked={radioValue === "other"}
-            onChange={handleRadioChange}
-            name="homeType"
-            sx={{
-              color: color.darkGreen,
-              "&.Mui-checked": {
-                color: color.darkGreen,
-              },
-            }}
-          />
-          <Typography
-            sx={{ fontSize: font.microTypography, color: color.grey }}
-          >
-            Other
-          </Typography>
-        </Box>
+        ))}
       </Box>
 
-      <Button>Submit</Button>
+      <Button type="submit">Submit</Button>
     </Box>
   );
 }

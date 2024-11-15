@@ -5,9 +5,11 @@ import { color, font } from "@/app/utils/themes";
 const Button: React.FC<{
   children: React.ReactNode;
   styles?: ButtonProps["sx"];
-}> = ({ children, styles = {} }) => {
+  type?: ButtonProps["type"];
+}> = ({ children, styles = {}, type }) => {
   return (
     <MuiButton
+      type={type}
       variant="contained"
       sx={{
         fontSize: font.tertiaryTypography,
