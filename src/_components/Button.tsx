@@ -5,11 +5,16 @@ import { color, font } from "@/app/utils/themes";
 const Button: React.FC<{
   children: React.ReactNode;
   styles?: ButtonProps["sx"];
-}> = ({ children, styles = {} }) => {
+  type?: ButtonProps["type"];
+  disabled?: boolean;
+}> = ({ children, styles = {}, type, disabled = false }) => {
   return (
     <MuiButton
+      type={type}
       variant="contained"
+      disabled={disabled}
       sx={{
+        height: { xs: "45px", md: "60px" },
         fontSize: font.tertiaryTypography,
         width: "100%",
         color: "#ffffff",

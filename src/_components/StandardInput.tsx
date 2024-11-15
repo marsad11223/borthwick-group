@@ -9,6 +9,8 @@ interface StandardInputProps {
   value?: string;
   defaultValue?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: boolean;
+  helperText?: string; // Additional prop for error message
 }
 
 export default function StandardInput({
@@ -18,6 +20,8 @@ export default function StandardInput({
   value,
   defaultValue,
   onChange,
+  error = false, // Default to no error
+  helperText = "", // Default to no helper text
   ...props
 }: StandardInputProps) {
   return (
@@ -30,6 +34,8 @@ export default function StandardInput({
       value={value}
       defaultValue={defaultValue}
       onChange={onChange}
+      error={error} // Pass error state to TextField
+      helperText={helperText} // Pass helper text for error or instructions
       sx={{
         width: "100%",
         "& .MuiOutlinedInput-root": {
@@ -38,23 +44,23 @@ export default function StandardInput({
           fontSize: "18px",
           color: color.grey,
           "& fieldset": {
-            borderColor: "transparent",
+            borderColor: error ? color.red : "transparent", // Highlight border on error
           },
           "&:hover fieldset": {
-            borderColor: color.grey,
+            borderColor: error ? color.red : color.grey, // Hover effect for error
           },
           "&.Mui-focused fieldset": {
-            borderColor: color.grey,
+            borderColor: error ? color.red : color.grey, // Focus effect for error
           },
         },
         "& .MuiInputBase-input": {
           color: color.grey,
         },
         "& .MuiInputLabel-root": {
-          color: color.grey,
+          color: error ? color.red : color.grey, // Change label color on error
         },
         "& .MuiInputLabel-root.Mui-focused": {
-          color: color.grey,
+          color: error ? color.red : color.grey, // Change focused label color on error
         },
       }}
       {...props}
