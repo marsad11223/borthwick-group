@@ -15,6 +15,7 @@ import {
 import StandardInput from "./StandardInput";
 import Button from "./Button";
 import axios from "axios";
+import { showError, showSuccess } from "@/app/utils/toast";
 
 // Define an interface for the form data
 interface FormData {
@@ -23,7 +24,7 @@ interface FormData {
   address: string;
   phone: string;
   postCode: string;
-  category: number;
+  category: string;
   homeType: string;
 }
 
@@ -31,6 +32,7 @@ export default function Form() {
   const {
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
@@ -39,7 +41,7 @@ export default function Form() {
       address: "",
       phone: "",
       postCode: "",
-      category: 2,
+      category: "Chairs",
       homeType: "homeOwner",
     },
   });
@@ -53,12 +55,14 @@ export default function Form() {
       const response = await axios.post("/api/contactus", data);
 
       if (response.status === 200) {
-        console.log("Email sent successfully:", response.data.message);
+        showSuccess("Email sent successfully!");
       } else {
-        console.error("Error sending email:", response.data.error);
+        showSuccess("Email sent successfully!");
       }
+      reset();
     } catch (error) {
-      console.error("Network error:", error);
+      console.error("Error sending email:", error);
+      showError("Network error. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -213,9 +217,9 @@ export default function Form() {
                 },
               }}
             >
-              <MenuItem value={1}>Sofas</MenuItem>
-              <MenuItem value={2}>Chairs</MenuItem>
-              <MenuItem value={3}>Tables</MenuItem>
+              <MenuItem value={"Sofas"}>Sofas</MenuItem>
+              <MenuItem value={"Chairs"}>Chairs</MenuItem>
+              <MenuItem value={"Tables"}>Tables</MenuItem>
             </Select>
             {errors.category && (
               <FormHelperText error>{errors.category.message}</FormHelperText>
