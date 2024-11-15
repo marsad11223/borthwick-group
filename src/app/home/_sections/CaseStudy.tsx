@@ -50,8 +50,10 @@ const CustomLeftArrow = (props: any) => {
         onClick={onClick}
         sx={{
           position: "absolute",
-          top: "50%",
-          left: { xs: "-20px", sm: "-36px", xl: "-60px" },
+
+          bottom: { xs: "-38px", lg: "none" },
+          left: { xs: "0px", lg: "-30px" },
+          top: { lg: "50%" },
           transform: "translateY(-50%)  rotate(180deg)",
           width: { xs: "25px", md: "30px", lg: "35px", xl: "42px" },
           height: { xs: "25px", md: "30px", lg: "35px", xl: "42px" },
@@ -99,9 +101,10 @@ const CustomRightArrow = (props: any) => {
         onClick={onClick}
         sx={{
           position: "absolute",
-          right: { xs: "-20px", sm: "-36px", xl: "-60px" },
-          top: "50%",
-          transform: "translateY(-50%)",
+          bottom: { xs: "-24px", lg: "none" },
+          right: { xs: "0px", lg: "-30px" },
+          top: { lg: "50%" },
+          transform: { lg: "translateY(-50%)" },
           width: { xs: "25px", md: "30px", lg: "35px", xl: "42px" },
           height: { xs: "25px", md: "30px", lg: "35px", xl: "42px" },
           borderRadius: "50%",
