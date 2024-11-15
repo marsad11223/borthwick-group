@@ -73,7 +73,7 @@ export default function CaseStudySliderSection() {
               textTransform: "uppercase",
             }}
           >
-            Our Process
+            our case study
           </Typography>
         </Box>
         <Typography
