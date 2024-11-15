@@ -52,7 +52,7 @@ export default function Footer() {
             <Box
               sx={{
                 display: "flex",
-                alignItems: "flex-start",
+                alignItems: { xs: "center", sm: "flex-start" },
                 gap: "17px",
                 flexDirection: "column",
               }}
@@ -79,6 +79,7 @@ export default function Footer() {
                 display: "flex",
                 flexDirection: "column",
                 gap: { sx: "8px", md: "15px", lg: "20px" },
+                alignItems: { xs: "center", sm: "flex-start" },
               }}
             >
               <Typography
@@ -94,9 +95,16 @@ export default function Footer() {
                   display: "flex",
                   flexDirection: "column",
                   gap: { sx: "4px", md: "8px", lg: "15px" },
+                  alignItems: { xs: "center", sm: "flex-start" },
                 }}
               >
-                <Typography sx={{ ...textStyles, maxWidth: "300px" }}>
+                <Typography
+                  sx={{
+                    ...textStyles,
+                    maxWidth: "300px",
+                    textAlign: { xs: "center", sm: "left" },
+                  }}
+                >
                   Our Support and Sales team is available 24 /7 to answer your
                   queries
                 </Typography>

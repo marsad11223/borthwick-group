@@ -4,7 +4,6 @@ import { color, font } from "@/app/utils/themes";
 import {
   Box,
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   Typography,
@@ -14,12 +13,7 @@ import StandardInput from "./StandardInput";
 import Button from "./Button";
 
 export default function Form() {
-  // const [value, setValue] = useState<number>(1);
   const [radioValue, setRadioValue] = useState<string>("homeOwner");
-
-  // const handleChange = () => {
-  // setValue(event.target.value as number);
-  // };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRadioValue(event.target.value);
@@ -54,16 +48,6 @@ export default function Form() {
         fullWidth
         sx={{ backgroundColor: "#EDEDED", borderRadius: "4px" }}
       >
-        <InputLabel
-          sx={{
-            color: "#7A7A7A",
-            "&.Mui-focused": {
-              color: "#7A7A7A",
-            },
-          }}
-        >
-          Benefits
-        </InputLabel>
         <Select
           sx={{
             width: "100%",
@@ -85,13 +69,8 @@ export default function Form() {
             "& .MuiInputBase-input": {
               color: color.grey,
             },
-            "& .MuiInputLabel-root": {
-              color: color.grey,
-            },
-            "& .MuiInputLabel-root.Mui-focused": {
-              color: color.grey,
-            },
           }}
+          defaultValue={2}
         >
           <MenuItem value={1}>Sofas</MenuItem>
           <MenuItem value={2}>Chairs</MenuItem>
@@ -123,6 +102,8 @@ export default function Form() {
               "&.Mui-checked": {
                 color: color.darkGreen,
               },
+              padding: "0",
+              marginRight: "9px",
             }}
           />
           <Typography
