@@ -1,6 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import React, { useState, useEffect } from "react";
 import { color, font } from "@/app/utils/themes";
 import {
   Box,
@@ -16,6 +15,7 @@ import StandardInput from "./StandardInput";
 import Button from "./Button";
 import axios from "axios";
 import { showError, showSuccess } from "@/app/utils/toast";
+import { Controller, useForm } from "react-hook-form";
 
 // Define an interface for the form data
 interface FormData {
@@ -47,6 +47,7 @@ export default function Form() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
@@ -67,6 +68,22 @@ export default function Form() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (dropdownOpen) {
+        setDropdownOpen(false);
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [dropdownOpen]);
 
   return (
     <Box

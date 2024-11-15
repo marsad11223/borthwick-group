@@ -40,6 +40,7 @@ export default function CaseStudySliderSection() {
         gap: "50px",
         // overflowX: "auto",
         paddingBottom: { xs: "40px", md: "60px", lg: "80px", xl: "100px" },
+        paddingX: { xs: "10px", sm: "20px" },
       }}
     >
       <Box
