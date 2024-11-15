@@ -34,7 +34,7 @@ export default function CaseStudySliderSection() {
     <Box
       sx={{
         display: "flex",
-        alignItems: "flex-start",
+        alignItems: { xs: "flex-start", sm: "center" },
         flexDirection: { xs: "column", lg: "row" },
         justifyContent: "space-between",
         gap: "50px",
