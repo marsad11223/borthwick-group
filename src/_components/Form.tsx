@@ -14,12 +14,23 @@ import {
 import StandardInput from "./StandardInput";
 import Button from "./Button";
 
+// Define an interface for the form data
+interface FormData {
+  name: string;
+  email: string;
+  address: string;
+  phone: string;
+  postCode: string;
+  category: number;
+  homeType: string;
+}
+
 export default function Form() {
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues: {
       name: "",
       email: "",
@@ -31,7 +42,7 @@ export default function Form() {
     },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FormData) => {
     console.log("Form Submitted", data);
   };
 
