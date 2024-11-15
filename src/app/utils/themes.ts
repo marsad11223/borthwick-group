@@ -47,5 +47,5 @@ export const font = {
   tertiaryTypography: { xs: "14px", md: "16px", lg: "18px" },
   quaternaryTypography: { xs: "14px", lg: "16px" },
   captionTypography: { xs: "12px", lg: "14px" },
-  microTypography: { xs: "10px", lg: "12px" },
+  microTypography: "12px",
 };
