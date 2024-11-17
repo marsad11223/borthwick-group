@@ -17,7 +17,7 @@ export const POST = async (request: Request) => {
     // Define the email content
     const mailOptions = {
       from: "marsad11223@gmail.com",
-      to: "marsad11223@gmail.com", // Recipient's email
+      to: "contact@pulsetechnologysolutions.co.uk", // Recipient's email
       subject: "Contact Form Submission",
       text: `
         Name: ${name}
