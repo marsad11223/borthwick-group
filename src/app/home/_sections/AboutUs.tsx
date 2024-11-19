@@ -1,7 +1,17 @@
+"use client";
 import pngs from "@/_assets/pngs";
 import { color, font } from "@/app/utils/themes";
 import { Box, Divider, Typography } from "@mui/material";
 import Image from "next/image";
+
+import Button from "@/_components/Button";
+
+const scrollToContactUs = () => {
+  const contactUsSection = document.getElementById("contact-us");
+  if (contactUsSection) {
+    contactUsSection.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 export default function AboutUs() {
   return (
@@ -85,6 +95,9 @@ export default function AboutUs() {
               covered under the scheme, all that remains is that you make good
               use of it.
             </Typography>
+            <Box onClick={scrollToContactUs}>
+              <Button>Check Eligibility</Button>
+            </Box>
           </Box>
           <Box>
             <Image

@@ -1,3 +1,4 @@
+"use client";
 import svgs from "@/_assets/svgs";
 import { font, color } from "@/app/utils/themes";
 import { Box, Divider, Typography } from "@mui/material";
@@ -10,9 +11,17 @@ export default function Navbar() {
     color: color.offWhite,
     textWrap: "nowrap",
   };
+
+  const scrollToContactUs = () => {
+    const contactUsSection = document.getElementById("contact-us");
+    if (contactUsSection) {
+      contactUsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box>
-      {/* header   */}
+      {/* header */}
       <Box
         sx={{
           display: "flex",
@@ -75,7 +84,7 @@ export default function Navbar() {
         </Box>
       </Box>
 
-      {/* navbar  */}
+      {/* navbar */}
       <Box
         sx={{
           display: "flex",
@@ -111,7 +120,7 @@ export default function Navbar() {
                 alt="logo"
               />
             </Box>
-            <Box>
+            <Box onClick={scrollToContactUs}>
               <Button>Check Eligibility</Button>
             </Box>
           </Box>
