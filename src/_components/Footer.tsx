@@ -24,7 +24,7 @@ export default function Footer() {
     >
       <Box
         sx={{
-          maxWidth: "1600px",
+          maxWidth: "1200px",
           width: "100%",
           display: "flex",
           flexDirection: "column",
@@ -43,7 +43,6 @@ export default function Footer() {
               display: "flex",
               justifyContent: "space-between",
               alignItem: "flex-start",
-              maxWidth: { lg: "1000px", xl: "1000px" },
               width: "100%",
               gap: "30px",
               flexDirection: { xs: "column", sm: "row" },
@@ -78,6 +77,59 @@ export default function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                gap: { xs: "8px", md: "15px", lg: "20px" },
+                alignItems: { xs: "center", sm: "flex-start" },
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: font.primaryTypography,
+                  color: color.darkGreen,
+                  fontWeight: "600",
+                }}
+              >
+                Contact Us
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: { xs: "8px", lg: "15px" },
+                  alignItems: { xs: "center", sm: "flex-start" },
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: { xs: "4px", md: "8px", lg: "15px" },
+                  }}
+                >
+                  <Image
+                    style={{ width: "20px", objectFit: "contain" }}
+                    src={svgs.Instagram}
+                    alt="instagram"
+                  />
+                  <Typography sx={{ ...textStyles }}>Instagram </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: { sx: "4px", md: "8px", lg: "15px" },
+                  }}
+                >
+                  <Image
+                    style={{ width: "20px", objectFit: "contain" }}
+                    src={svgs.Facebook}
+                    alt="instagram"
+                  />
+                  <Typography sx={{ ...textStyles }}>Facebook </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
                 gap: { sx: "8px", md: "15px", lg: "20px" },
                 alignItems: { xs: "center", sm: "flex-start" },
               }}
@@ -86,6 +138,7 @@ export default function Footer() {
                 sx={{
                   fontSize: font.primaryTypography,
                   color: color.darkGreen,
+                  fontWeight: "600",
                 }}
               >
                 Contact Us
