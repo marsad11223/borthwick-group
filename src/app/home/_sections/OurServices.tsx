@@ -1,3 +1,4 @@
+"use client";
 import pngs from "@/_assets/pngs";
 import { color, font } from "@/app/utils/themes";
 import { Box, Divider, Grid, Typography } from "@mui/material";
@@ -9,6 +10,7 @@ interface OurServicesCardProps {
   title: string;
   description: string;
   alignment: string;
+  onClick: () => void;
 }
 
 export default function OurServices() {
@@ -38,7 +40,7 @@ export default function OurServices() {
       imageSrc: pngs.CentralHeating,
       title: "FREE Boiler and Central Heating",
       description:
-        "Free Boiler replacement for boilers older than 2004  and first time central heating upgrades",
+        "Free Boiler replacement for boilers older than 2004 and first time central heating upgrades",
       alignment: "flex-start",
     },
     {
@@ -55,6 +57,13 @@ export default function OurServices() {
       alignment: "flex-end",
     },
   ];
+
+  const scrollToContactUs = () => {
+    const target = document.getElementById("contact-us");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -151,6 +160,7 @@ export default function OurServices() {
                 title={service.title}
                 description={service.description}
                 alignment={service.alignment}
+                onClick={scrollToContactUs}
               />
             ))}
           </Grid>
@@ -165,6 +175,7 @@ function OurServicesCard({
   title,
   description,
   alignment,
+  onClick,
 }: OurServicesCardProps) {
   return (
     <Grid
@@ -178,6 +189,7 @@ function OurServicesCard({
       lg={3.5}
     >
       <Box
+        onClick={onClick}
         sx={{
           maxWidth: "370px",
           width: "100%",
@@ -186,6 +198,12 @@ function OurServicesCard({
           overflow: "hidden",
           height: "100%",
           boxShadow: `0px 4px 10px 0px ${color.fadeBlack}`,
+          cursor: "pointer",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          "&:hover": {
+            transform: "scale(1.05)",
+            boxShadow: `0px 8px 20px 0px ${color.fadeBlack}`,
+          },
         }}
       >
         <Box sx={{ width: "100%", height: "auto", marginBottom: "-2.5px" }}>

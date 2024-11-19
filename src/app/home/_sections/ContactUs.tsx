@@ -6,6 +6,7 @@ export default function ContactUs() {
   return (
     <>
       <Box
+        id="contact-us"
         className="section-padding"
         sx={{
           display: "flex",

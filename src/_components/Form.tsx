@@ -265,7 +265,7 @@ export default function Form() {
           alignItems: "center",
         }}
       >
-        {["homeOwner", "tenant", "other"].map((type) => (
+        {["home Owner", "tenant", "other"].map((type) => (
           <Controller
             key={type}
             name="homeType"
@@ -290,7 +290,7 @@ export default function Form() {
                   }}
                 />
                 <Typography
-                  sx={{ fontSize: font.microTypography, color: color.grey }}
+                  sx={{ fontSize: font.captionTypography, color: color.grey }}
                 >
                   {type.charAt(0).toUpperCase() + type.slice(1)}
                 </Typography>
