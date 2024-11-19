@@ -42,12 +42,12 @@ export default function Footer() {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: { xs: "space-between", lg: "space-between" },
               alignItem: "flex-start",
               width: "100%",
               gap: "30px",
               flexDirection: { xs: "column", sm: "row" },
-              // flexWrap: "wrap",
+              flexWrap: "wrap",
             }}
           >
             <Box
@@ -132,7 +132,7 @@ export default function Footer() {
             </Box>
             <Box
               sx={{
-                display: "flex",
+                display: { xs: "none", sm: "flex" },
                 flexDirection: "column",
                 gap: { sx: "8px", md: "15px", lg: "20px" },
                 alignItems: { xs: "center", sm: "flex-start" },
