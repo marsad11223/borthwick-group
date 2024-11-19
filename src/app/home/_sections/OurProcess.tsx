@@ -1,9 +1,18 @@
+"use client";
 import svgs from "@/_assets/svgs";
 import { color, font } from "@/app/utils/themes";
 import { Box, Divider, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
+import Button from "@/_components/Button";
 
 export default function OurProcess() {
+  const scrollToContactUs = () => {
+    const contactUsSection = document.getElementById("contact-us");
+    if (contactUsSection) {
+      contactUsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const processData = [
     {
       image: svgs.Notepad,
@@ -125,6 +134,21 @@ export default function OurProcess() {
                   text={cardData.text}
                 />
               ))}
+            </Box>
+            <Box
+              sx={{
+                paddingTop: {
+                  xs: "40px",
+                  sm: "40px",
+                  md: "60px",
+                  lg: "80px",
+                  xl: "100px",
+                },
+              }}
+            >
+              <Box onClick={scrollToContactUs}>
+                <Button>Check Eligibility</Button>
+              </Box>
             </Box>
           </Box>
         </Box>

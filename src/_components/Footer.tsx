@@ -1,11 +1,12 @@
 import svgs from "@/_assets/svgs";
 import { color, font } from "@/app/utils/themes";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Link, Typography } from "@mui/material";
 import Image from "next/image";
 export default function Footer() {
   const textStyles = {
     fontSize: font.captionTypography,
     color: color.grey,
+    textWrap: "no-wrap",
   };
   return (
     <Box
@@ -24,7 +25,7 @@ export default function Footer() {
     >
       <Box
         sx={{
-          maxWidth: "1200px",
+          maxWidth: "1600px",
           width: "100%",
           display: "flex",
           flexDirection: "column",
@@ -46,6 +47,7 @@ export default function Footer() {
               width: "100%",
               gap: "30px",
               flexDirection: { xs: "column", sm: "row" },
+              // flexWrap: "wrap",
             }}
           >
             <Box
@@ -88,7 +90,7 @@ export default function Footer() {
                   fontWeight: "600",
                 }}
               >
-                Contact Us
+                Social Links
               </Typography>
               <Box
                 sx={{
@@ -101,7 +103,8 @@ export default function Footer() {
                 <Box
                   sx={{
                     display: "flex",
-                    gap: { xs: "4px", md: "8px", lg: "15px" },
+                    alignItems: "center",
+                    gap: { xs: "8px", lg: "15px" },
                   }}
                 >
                   <Image
@@ -114,7 +117,8 @@ export default function Footer() {
                 <Box
                   sx={{
                     display: "flex",
-                    gap: { sx: "4px", md: "8px", lg: "15px" },
+                    alignItems: "center",
+                    gap: { xs: "8px", lg: "15px" },
                   }}
                 >
                   <Image
@@ -171,6 +175,53 @@ export default function Footer() {
                   brightecofuture@gmail.com
                 </Typography>
               </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: { sx: "8px", md: "15px", lg: "20px" },
+                alignItems: { xs: "center", sm: "flex-start" },
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: font.primaryTypography,
+                  color: color.darkGreen,
+                  fontWeight: "600",
+                }}
+              >
+                Scheme
+              </Typography>
+              <Typography
+                sx={{
+                  ...textStyles,
+                  maxWidth: "300px",
+                  textAlign: { xs: "center", sm: "left" },
+                }}
+              >
+                Want to learn more about the scheme? Click the link below:
+              </Typography>
+              <Typography
+                sx={{
+                  ...textStyles,
+                  width: "80%",
+                  textAlign: { xs: "center", sm: "left" },
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <Link
+                  sx={{ color: color.grey, textDecoration: "none" }}
+                  href="https://www.gov.uk/energy-company-obligation"
+                  target="_blank"
+                >
+                  https://
+                  <Link sx={{ color: color.darkGreen, textDecoration: "none" }}>
+                    www.gov.uk/energy-company-obligation
+                  </Link>
+                </Link>
+              </Typography>
             </Box>
           </Box>
         </Box>
