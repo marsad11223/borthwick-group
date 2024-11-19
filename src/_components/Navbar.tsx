@@ -28,10 +28,9 @@ export default function Navbar() {
         }}
       >
         <Box sx={{ maxWidth: "1600px", width: "100%" }}>
-          {" "}
           <Box
             sx={{
-              overflowX: "scroll",
+              overflowX: "auto",
             }}
           >
             <Box

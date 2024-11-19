@@ -11,6 +11,8 @@ import Heating from "./heating.svg";
 import HotWater from "./hotWater.svg";
 import Lighting from "./lighting.svg";
 import Rating from "./rating.svg";
+import Facebook from "./facebook.svg";
+import Instagram from "./instagram.svg";
 
 const svgs = {
   Logo,
@@ -26,6 +28,8 @@ const svgs = {
   HotWater,
   Lighting,
   Rating,
+  Facebook,
+  Instagram,
 };
 
 export default svgs;
