@@ -62,7 +62,9 @@ export function OurProcessCard() {
               fontSize: font.captionTypography,
             }}
           >
-            Test 1
+            Super professional service. Everything was on-time and totally fixed
+            the problem. Reliable and affordable service with a friendly support
+            team.
           </Typography>
           <Image
             style={{
@@ -88,6 +90,5 @@ export function OurProcessCard() {
         </Typography>
       </Box>
     </Box>
-    
   );
 }
