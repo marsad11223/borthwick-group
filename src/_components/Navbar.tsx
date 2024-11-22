@@ -66,7 +66,7 @@ export default function Navbar() {
                 }}
               /> */}
               <Typography sx={{ ...fontStyle }}>
-                brightecofuture@gmail.com
+                contact@brightecofuture.com
               </Typography>
               <Divider
                 orientation="vertical"
@@ -78,7 +78,7 @@ export default function Navbar() {
                   border: "1px dashed #ffffff",
                 }}
               />
-              <Typography sx={{ ...fontStyle }}>+1 (333) 000-0000</Typography>
+              <Typography sx={{ ...fontStyle }}>0114 321 3204</Typography>
             </Box>
           </Box>
         </Box>
