@@ -32,6 +32,7 @@ export function OurProcessCard({
       sx={{
         display: "flex",
         justifyContent: "center",
+        height: { xs: "223px", md: "200px", lg: "241px" },
       }}
     >
       <Box
@@ -44,58 +45,66 @@ export function OurProcessCard({
           display: "flex",
           flexDirection: "column",
           gap: "25px",
+          justifyContent: "space-between",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
-          {[...Array(stars)].map((_, i) => (
-            <Image
-              key={i}
-              style={{ width: "22px", objectFit: "contain" }}
-              src={svgs.WhiteStar}
-              alt="white star"
-            />
-          ))}
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            position: "relative",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image
-            style={{ width: "22px", objectFit: "contain" }}
-            src={svgs.Comma}
-            alt="Comma"
-          />
-          <Typography
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "25px" }}>
+          <Box
             sx={{
-              textAlign: "center",
-              color: textColor,
-              fontSize: font.captionTypography,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "8px",
             }}
           >
-            {message}
-          </Typography>
-          <Image
-            style={{
-              width: "22px",
-              objectFit: "contain",
-              position: "absolute",
-              bottom: "0px",
-              right: "0px",
-              transform: "rotate(180deg)",
+            {[...Array(stars)].map((_, i) => (
+              <Image
+                key={i}
+                style={{ width: "22px", objectFit: "contain" }}
+                src={svgs.WhiteStar}
+                alt="white star"
+              />
+            ))}
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              position: "relative",
+              justifyContent: "space-between",
             }}
-            src={svgs.Comma}
-            alt="Comma"
-          />
+          >
+            <Image
+              style={{ width: "22px", objectFit: "contain" }}
+              src={svgs.Comma}
+              alt="Comma"
+            />
+            <Typography
+              sx={{
+                textAlign: "center",
+                color: textColor,
+                fontSize: font.captionTypography,
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                WebkitLineClamp: 5,
+              }}
+            >
+              {message}
+            </Typography>
+            <Image
+              style={{
+                width: "22px",
+                objectFit: "contain",
+                position: "absolute",
+                bottom: "0px",
+                right: "0px",
+                transform: "rotate(180deg)",
+              }}
+              src={svgs.Comma}
+              alt="Comma"
+            />
+          </Box>
         </Box>
         <Typography
           sx={{
