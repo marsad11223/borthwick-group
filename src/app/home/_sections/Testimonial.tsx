@@ -110,7 +110,6 @@ export default function OurProcess() {
               <Slider {...settings}>
                 <OurProcessCard />
                 <OurProcessCard />
-                <OurProcessCard />
               </Slider>
             </Box>
           </Box>
