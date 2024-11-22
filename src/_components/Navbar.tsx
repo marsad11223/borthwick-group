@@ -52,7 +52,7 @@ export default function Navbar() {
                 width: "100%",
               }}
             >
-              <Typography sx={{ ...fontStyle }}>
+              {/* <Typography sx={{ ...fontStyle }}>
                 123 Anywhere Street, NY
               </Typography>
               <Divider
@@ -64,7 +64,7 @@ export default function Navbar() {
                   backgroundColor: color.white,
                   border: "1px dashed #ffffff",
                 }}
-              />
+              /> */}
               <Typography sx={{ ...fontStyle }}>
                 brightecofuture@gmail.com
               </Typography>
