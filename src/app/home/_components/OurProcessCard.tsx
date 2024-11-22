@@ -86,6 +86,21 @@ export function OurProcessCard() {
         >
           James Ellie
         </Typography>
+      </Box>
+      <Box
+        className="project"
+        sx={{
+          backgroundColor: color.lightGreen,
+          borderRadius: "30px",
+          padding: "22px",
+          width: { xs: "250px", md: "300px" },
+          display: "flex",
+          flexDirection: "column",
+          gap: "25px",
+          // transform: "scale(0.6)",
+          // opacity: "0.5",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -148,5 +163,6 @@ export function OurProcessCard() {
         </Typography>
       </Box>
     </Box>
+    
   );
 }
