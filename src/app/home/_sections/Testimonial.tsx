@@ -109,7 +109,6 @@ export default function OurProcess() {
             <Box sx={{ maxWidth: "1200px", width: "100%", marginTop: "40px" }}>
               <Slider {...settings}>
                 <OurProcessCard />
-                <OurProcessCard />
               </Slider>
             </Box>
           </Box>
