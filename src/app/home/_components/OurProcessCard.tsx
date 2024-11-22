@@ -57,12 +57,12 @@ export function OurProcessCard({
               gap: "8px",
             }}
           >
-            {[...Array(stars)].map((_, i) => (
+            {[...Array(5)].map((_, i) => (
               <Image
                 key={i}
                 style={{ width: "22px", objectFit: "contain" }}
-                src={svgs.WhiteStar}
-                alt="white star"
+                src={i < stars ? svgs.OrangeStar : svgs.WhiteStar}
+                alt={i < stars ? "orange star" : "white star"}
               />
             ))}
           </Box>
