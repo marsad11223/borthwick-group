@@ -4,7 +4,29 @@ import Image from "next/image";
 import { color, font } from "@/app/utils/themes";
 import svgs from "@/_assets/svgs";
 
-export function OurProcessCard() {
+interface OurProcessCardProps {
+  stars: number; // Number of stars to display
+  message: string; // Review text
+  author: string; // Name of the person giving the review
+  styles?: {
+    cardBackground?: string; // Optional custom background color
+    textColor?: string; // Optional text color for the message
+    authorColor?: string; // Optional text color for the author
+  };
+}
+
+export function OurProcessCard({
+  stars,
+  message,
+  author,
+  styles = {},
+}: OurProcessCardProps) {
+  const {
+    cardBackground = color.lightGreen,
+    textColor = color.grey,
+    authorColor = color.darkGreen,
+  } = styles;
+
   return (
     <Box
       sx={{
@@ -15,15 +37,13 @@ export function OurProcessCard() {
       <Box
         className="project"
         sx={{
-          backgroundColor: color.lightGreen,
+          backgroundColor: cardBackground,
           borderRadius: "30px",
           padding: "22px",
           width: { xs: "250px", md: "300px" },
           display: "flex",
           flexDirection: "column",
           gap: "25px",
-          // transform: "scale(0.6)",
-          // opacity: "0.5",
         }}
       >
         <Box
@@ -34,7 +54,7 @@ export function OurProcessCard() {
             gap: "8px",
           }}
         >
-          {[...Array(5)].map((_, i) => (
+          {[...Array(stars)].map((_, i) => (
             <Image
               key={i}
               style={{ width: "22px", objectFit: "contain" }}
@@ -58,13 +78,11 @@ export function OurProcessCard() {
           <Typography
             sx={{
               textAlign: "center",
-              color: color.grey,
+              color: textColor,
               fontSize: font.captionTypography,
             }}
           >
-            Super professional service. Everything was on-time and totally fixed
-            the problem. Reliable and affordable service with a friendly support
-            team.
+            {message}
           </Typography>
           <Image
             style={{
@@ -82,11 +100,11 @@ export function OurProcessCard() {
         <Typography
           sx={{
             textAlign: "center",
-            color: color.darkGreen,
+            color: authorColor,
             fontSize: font.captionTypography,
           }}
         >
-          James Ellie
+          {author}
         </Typography>
       </Box>
     </Box>
