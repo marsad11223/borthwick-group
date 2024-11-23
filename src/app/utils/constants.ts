@@ -10,7 +10,7 @@ export const processCardsData: testiomonialData[] = [
   {
     stars: 3,
     message:
-      "Super professional service. Everything was on-time and totally fixed the problem. Reliable and affordable service with a friendly support team.",
+      "Super professional service. Everything was on-time and totally fixed the problem. Reliable and affordable service with a friendly support team. ",
     author: "James Ellie",
   },
   {
