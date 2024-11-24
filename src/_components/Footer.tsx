@@ -162,14 +162,10 @@ export default function Footer() {
                     textAlign: { xs: "center", sm: "left" },
                   }}
                 >
-                  Our Support and Sales team is available 24 /7 to answer your
-                  queries
+                  Call or E-mail to get in touch with someone from our team
                 </Typography>
                 <Typography sx={{ ...textStyles }}>
-                  123 Anywhere Street, NY
-                </Typography>
-                <Typography sx={{ ...textStyles }}>
-                  +1 (333) 000-0000
+                  0114 321 3204
                 </Typography>
                 <Typography sx={{ ...textStyles }}>
                   brightecofuture@gmail.com
