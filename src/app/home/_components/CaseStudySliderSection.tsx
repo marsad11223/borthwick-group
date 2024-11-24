@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Divider,
@@ -6,8 +6,6 @@ import {
   Table,
   TableRow,
   TableCell,
-  List,
-  ListItem,
 } from "@mui/material";
 import Image from "next/image";
 import { color, font } from "@/app/utils/themes";
@@ -33,6 +31,12 @@ interface CaseStudySliderSectionProps {
 export default function CaseStudySliderSection({
   caseStudy,
 }: CaseStudySliderSectionProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggle = () => {
+    setIsExpanded((prev) => !prev);
+  };
+
   const whiteText = {
     backgroundColor: color.darkGreen,
     fontSize: font.quaternaryTypography,
@@ -41,6 +45,7 @@ export default function CaseStudySliderSection({
     textAlign: "left",
     padding: { xs: "3px", sm: "6px", lg: "16px" },
   };
+
   const darkText = {
     color: color.grey,
     font: font.captionTypography,
@@ -49,6 +54,7 @@ export default function CaseStudySliderSection({
     textAlign: "center",
     padding: { xs: "3px", sm: "6px", lg: "16px" },
   };
+
   return (
     <Box
       sx={{
@@ -107,10 +113,16 @@ export default function CaseStudySliderSection({
           {caseStudy.title}
         </Typography>
         <Typography
+          onClick={handleToggle}
           sx={{
             color: color.grey,
             fontSize: font.captionTypography,
             textAlign: "left",
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            overflow: isExpanded ? "visible" : "hidden",
+            WebkitLineClamp: isExpanded ? "unset" : 5,
+            cursor: "pointer", // Add a pointer cursor to indicate it's clickable
           }}
         >
           {caseStudy.description}
@@ -162,23 +174,6 @@ export default function CaseStudySliderSection({
             </TableRow>
           ))}
         </Table>
-        <List
-          sx={{
-            listStyleType: "disc",
-            pl: 1,
-            color: color.grey,
-            fontSize: font.captionTypography,
-          }}
-        >
-          {caseStudy.notes.map((note, index) => (
-            <ListItem
-              key={index}
-              sx={{ display: "list-item", paddingLeft: "0" }}
-            >
-              {note}
-            </ListItem>
-          ))}
-        </List>
       </Box>
     </Box>
   );
