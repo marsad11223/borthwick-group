@@ -233,7 +233,7 @@ export default function Form() {
                   },
                 },
               }}
-              defaultValue={"Chairs"}
+              defaultValue={"Income based Jobseekers allowance (JSA)"}
               open={dropdownOpen}
               onOpen={() => setDropdownOpen(true)}
               onClose={() => setDropdownOpen(false)}
