@@ -155,15 +155,6 @@ export default function Footer() {
                   alignItems: { xs: "center", sm: "flex-start" },
                 }}
               >
-                <Typography
-                  sx={{
-                    ...textStyles,
-                    maxWidth: "300px",
-                    textAlign: { xs: "center", sm: "left" },
-                  }}
-                >
-                  Call or E-mail to get in touch with someone from our team
-                </Typography>
                 <Typography sx={{ ...textStyles }}>
                   0114 321 3204
                 </Typography>
