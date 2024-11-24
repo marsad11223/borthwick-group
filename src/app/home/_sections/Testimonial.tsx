@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { OurProcessCard } from "../_components/OurProcessCard";
 import Image from "next/image";
 import svgs from "@/_assets/svgs";
+import { processCardsData } from "@/app/utils/constants";
 
 export default function OurProcess() {
   const settings = {
@@ -108,9 +109,14 @@ export default function OurProcess() {
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box sx={{ maxWidth: "1200px", width: "100%", marginTop: "40px" }}>
               <Slider {...settings}>
-                <OurProcessCard />
-                <OurProcessCard />
-                <OurProcessCard />
+                {processCardsData.map((card, index) => (
+                  <OurProcessCard
+                    key={index}
+                    stars={card.stars}
+                    message={card.message}
+                    author={card.author}
+                  />
+                ))}
               </Slider>
             </Box>
           </Box>

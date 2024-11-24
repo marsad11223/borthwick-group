@@ -4,89 +4,116 @@ import Image from "next/image";
 import { color, font } from "@/app/utils/themes";
 import svgs from "@/_assets/svgs";
 
-export function OurProcessCard() {
+interface OurProcessCardProps {
+  stars: number; // Number of stars to display
+  message: string; // Review text
+  author: string; // Name of the person giving the review
+  styles?: {
+    cardBackground?: string; // Optional custom background color
+    textColor?: string; // Optional text color for the message
+    authorColor?: string; // Optional text color for the author
+  };
+}
+
+export function OurProcessCard({
+  stars,
+  message,
+  author,
+  styles = {},
+}: OurProcessCardProps) {
+  const {
+    cardBackground = color.lightGreen,
+    textColor = color.grey,
+    authorColor = color.darkGreen,
+  } = styles;
+
   return (
     <Box
       sx={{
         display: "flex",
         justifyContent: "center",
+        height: { xs: "223px", md: "200px", lg: "241px" },
       }}
     >
       <Box
         className="project"
         sx={{
-          backgroundColor: color.lightGreen,
+          backgroundColor: cardBackground,
           borderRadius: "30px",
           padding: "22px",
           width: { xs: "250px", md: "300px" },
           display: "flex",
           flexDirection: "column",
           gap: "25px",
-          // transform: "scale(0.6)",
-          // opacity: "0.5",
+          justifyContent: "space-between",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
-          {[...Array(5)].map((_, i) => (
-            <Image
-              key={i}
-              style={{ width: "22px", objectFit: "contain" }}
-              src={svgs.WhiteStar}
-              alt="white star"
-            />
-          ))}
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            position: "relative",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image
-            style={{ width: "22px", objectFit: "contain" }}
-            src={svgs.Comma}
-            alt="Comma"
-          />
-          <Typography
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "25px" }}>
+          <Box
             sx={{
-              textAlign: "center",
-              color: color.grey,
-              fontSize: font.captionTypography,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "8px",
             }}
           >
-            Super professional service. Everything was on-time and totally fixed
-            the problem. Reliable and affordable service with a friendly support
-            team.
-          </Typography>
-          <Image
-            style={{
-              width: "22px",
-              objectFit: "contain",
-              position: "absolute",
-              bottom: "0px",
-              right: "0px",
-              transform: "rotate(180deg)",
+            {[...Array(5)].map((_, i) => (
+              <Image
+                key={i}
+                style={{ width: "22px", objectFit: "contain" }}
+                src={i < stars ? svgs.OrangeStar : svgs.WhiteStar}
+                alt={i < stars ? "orange star" : "white star"}
+              />
+            ))}
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              position: "relative",
+              justifyContent: "space-between",
             }}
-            src={svgs.Comma}
-            alt="Comma"
-          />
+          >
+            <Image
+              style={{ width: "22px", objectFit: "contain" }}
+              src={svgs.Comma}
+              alt="Comma"
+            />
+            <Typography
+              sx={{
+                textAlign: "center",
+                color: textColor,
+                fontSize: font.captionTypography,
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                WebkitLineClamp: 5,
+              }}
+            >
+              {message}
+            </Typography>
+            <Image
+              style={{
+                width: "22px",
+                objectFit: "contain",
+                position: "absolute",
+                bottom: "0px",
+                right: "0px",
+                transform: "rotate(180deg)",
+              }}
+              src={svgs.Comma}
+              alt="Comma"
+            />
+          </Box>
         </Box>
         <Typography
           sx={{
             textAlign: "center",
-            color: color.darkGreen,
+            color: authorColor,
             fontSize: font.captionTypography,
           }}
         >
-          James Ellie
+          {author}
         </Typography>
       </Box>
     </Box>

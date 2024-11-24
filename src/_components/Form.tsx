@@ -233,7 +233,7 @@ export default function Form() {
                   },
                 },
               }}
-              defaultValue={"Chairs"}
+              defaultValue={"Income based Jobseekers allowance (JSA)"}
               open={dropdownOpen}
               onOpen={() => setDropdownOpen(true)}
               onClose={() => setDropdownOpen(false)}
@@ -246,9 +246,16 @@ export default function Form() {
                 disableScrollLock: true,
               }}
             >
-              <MenuItem value={"Sofas"}>Sofas</MenuItem>
-              <MenuItem value={"Chairs"}>Chairs</MenuItem>
-              <MenuItem value={"Tables"}>Tables</MenuItem>
+              <MenuItem value={"Income based Jobseekers allowance (JSA)"}>Income based Jobseekers allowance (JSA)</MenuItem>
+              <MenuItem value={"Income related Employment & Support Allowance"}>Income related Employment & Support Allowance</MenuItem>
+              <MenuItem value={"(ESA) Income Support (IS)"}>(ESA) Income Support (IS)</MenuItem>
+              <MenuItem value={"Pension Credit Guarantee Credit"}>Pension Credit Guarantee Credit</MenuItem>
+              <MenuItem value={"Working Tax Credit (WTC)"}>Working Tax Credit (WTC)</MenuItem>
+              <MenuItem value={"Child Tax Credits (CTC)"}>Child Tax Credits (CTC)</MenuItem>
+              <MenuItem value={"Universal Credit (UC)"}>Universal Credit (UC)</MenuItem>
+              <MenuItem value={"Housing Benefit (new eligible benefit under ECO4)"}>Housing Benefit (new eligible benefit under ECO4)</MenuItem>
+              <MenuItem value={"Pension Credit Savings Credit (new eligible benefit under ECO4)"}>Pension Credit Savings Credit (new eligible benefit under ECO4)</MenuItem>
+              <MenuItem value={"Child Benefit*"}>Child Benefit*</MenuItem>
             </Select>
             {errors.category && (
               <FormHelperText error>{errors.category.message}</FormHelperText>
