@@ -52,7 +52,7 @@ export default function Navbar() {
                 width: "100%",
               }}
             >
-              <Typography sx={{ ...fontStyle }}>
+              {/* <Typography sx={{ ...fontStyle }}>
                 123 Anywhere Street, NY
               </Typography>
               <Divider
@@ -64,9 +64,9 @@ export default function Navbar() {
                   backgroundColor: color.white,
                   border: "1px dashed #ffffff",
                 }}
-              />
+              /> */}
               <Typography sx={{ ...fontStyle }}>
-                brightecofuture@gmail.com
+                contact@brightecofuture.com
               </Typography>
               <Divider
                 orientation="vertical"
@@ -78,7 +78,7 @@ export default function Navbar() {
                   border: "1px dashed #ffffff",
                 }}
               />
-              <Typography sx={{ ...fontStyle }}>+1 (333) 000-0000</Typography>
+              <Typography sx={{ ...fontStyle }}>0114 321 3204</Typography>
             </Box>
           </Box>
         </Box>

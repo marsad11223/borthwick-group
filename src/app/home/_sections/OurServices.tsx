@@ -17,14 +17,14 @@ export default function OurServices() {
   const servicesData = [
     {
       imageSrc: pngs.HeatPump,
-      title: "FREE Air Source Heat Pump",
+      title: "Free Air Source Heat Pump",
       description:
         "Access the latest renewable technology with a Free Air Source Heat Pump.",
       alignment: "flex-start",
     },
     {
       imageSrc: pngs.HeaterReplacement,
-      title: "FREE Storage Heater Replacement",
+      title: "Free Storage Heater Replacement",
       description:
         "Our water heater repair service involves diagnosing and fixing issues.",
       alignment: "center",
@@ -38,7 +38,7 @@ export default function OurServices() {
     },
     {
       imageSrc: pngs.CentralHeating,
-      title: "FREE Boiler and Central Heating",
+      title: "Free Boiler and Central Heating",
       description:
         "Free Boiler replacement for boilers older than 2004 and first time central heating upgrades",
       alignment: "flex-start",
@@ -47,7 +47,7 @@ export default function OurServices() {
       imageSrc: pngs.HomeInsulation,
       title: "Free Whole Home Insulation",
       description:
-        "Boost home energy efficiency with cavity wall, loft, EWI, and UFI insulation.",
+        "Boost home energy efficiency with loft and both internal and external wall insulation.",
       alignment: "center",
     },
     {

@@ -155,21 +155,8 @@ export default function Footer() {
                   alignItems: { xs: "center", sm: "flex-start" },
                 }}
               >
-                <Typography
-                  sx={{
-                    ...textStyles,
-                    maxWidth: "300px",
-                    textAlign: { xs: "center", sm: "left" },
-                  }}
-                >
-                  Our Support and Sales team is available 24 /7 to answer your
-                  queries
-                </Typography>
                 <Typography sx={{ ...textStyles }}>
-                  123 Anywhere Street, NY
-                </Typography>
-                <Typography sx={{ ...textStyles }}>
-                  +1 (333) 000-0000
+                  0114 321 3204
                 </Typography>
                 <Typography sx={{ ...textStyles }}>
                   brightecofuture@gmail.com

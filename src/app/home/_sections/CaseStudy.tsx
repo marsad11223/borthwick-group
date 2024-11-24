@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import CaseStudySliderSection from "../_components/CaseStudySliderSection";
 import svgs from "@/_assets/svgs";
 import Image from "next/image";
+import { caseStudys } from "@/app/utils/constants";
 
 export default function CaseStudy() {
   const sliderSettings = {
@@ -31,9 +32,9 @@ export default function CaseStudy() {
       >
         <Box sx={{ maxWidth: "1600px", width: "100%" }}>
           <Slider {...sliderSettings}>
-            <CaseStudySliderSection />
-            <CaseStudySliderSection />
-            <CaseStudySliderSection />
+            {caseStudys.map((item, index: number) => (
+              <CaseStudySliderSection caseStudy={item} key={index} />
+            ))}
           </Slider>
         </Box>
       </Box>
